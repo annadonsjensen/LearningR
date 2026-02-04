@@ -10,7 +10,7 @@ format: html
 
 library(tidyverse)
 
-post_meal_data<-read_csv2(here::here("data/post-meal-insulin.csv"))
+post_meal_data <- read_csv2(here::here("data/post-meal-insulin.csv"))
 ```
 
 
@@ -19,7 +19,7 @@ post_meal_data<-read_csv2(here::here("data/post-meal-insulin.csv"))
 2+2
 
 ```{r}
-2+2
+2 + 2
 ```
 
 ## About me
@@ -33,7 +33,7 @@ post_meal_data<-read_csv2(here::here("data/post-meal-insulin.csv"))
 ## Simple code
 
 ```{r}
-3*3
+3 * 3
 ```
 
 ## Testing for Git
@@ -53,7 +53,7 @@ glimpse(post_meal_data)
 ```{r}
 #| fig-cap: "Distribution of BMI"
 #| label: fig-bmi-histo
-ggplot(post_meal_data, aes(x=BMI)) +
+ggplot(post_meal_data, aes(x = BMI)) +
   geom_histogram()
 ```
 
@@ -81,7 +81,7 @@ ggplot(post_meal_data, aes(x = Group, fill = as.character(glykemi))) +
 
 ```{r fig-bmi-glycemia}
 #| fig-cap: "BMI and glycemia, side by side"
-#| fig-subcap: 
+#| fig-subcap:
 #| - "Distrubution of BMI"
 #| - "Number of those with glycemia"
 #| layout-ncol: 2
@@ -92,3 +92,12 @@ ggplot(post_meal_data, aes(x = glykemi)) +
   geom_bar()
 ```
 
+## Plotting two continuous variables
+
+```{r}
+#| fig-cap: "Scatterplot of BMI and the area under the curve for glucose"
+#| label: fig-bmi-auc-pg
+ggplot(post_meal_data, aes(x = BMI, y = auc_pg)) +
+  geom_point() +
+  geom_smooth()
+```
