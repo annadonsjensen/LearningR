@@ -4,6 +4,8 @@ Anna_LearningR
 
 # LearningR:
 
+Godmorgen, godmiddag, godaften
+
 TODO: Give a brief description of what your project is about
 
 This project...
