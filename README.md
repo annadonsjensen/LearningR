@@ -4,7 +4,7 @@ Anna_LearningR
 
 # LearningR:
 
-Godmorgen, godmiddag, godaften
+Bab bubs bib
 
 TODO: Give a brief description of what your project is about
 
