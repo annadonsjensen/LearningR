@@ -17,7 +17,7 @@ small_post_meal_data <- select(post_meal_data, id, Age, BMI, Group, auc_pg, auc_
 tidier_post_meal_data <- small_post_meal_data |>
   rename(
     auc_glucose = auc_pg,
-    auc_insuline = auc_ins
+    auc_insulin = auc_ins
   ) |>
   filter(glykemi == 0) |>
   select(-glykemi)
@@ -131,7 +131,7 @@ select(post_meal_data, contains("0"))
 ## Renaming Collums
 
 ```{r}
-small_post_meal_data |>
+small_post_meal_data <- small_post_meal_data |>
   rename(
     auc_glucose = auc_pg,
     auc_insulin = auc_ins
@@ -180,4 +180,17 @@ small_post_meal_data |>
 
 small_post_meal_data |>
   filter(Group == "CTR" | BMI >= 25)
+```
+
+## Modifying data
+
+```{r}
+tidier_post_meal_data |>
+  mutate(insulin_glucose_ratio = auc_insulin / auc_glucose)
+
+tidier_post_meal_data <- tidier_post_meal_data |>
+  mutate(
+    insulin_glucose_ratio = auc_insulin / auc_glucose,
+    Group = if_else(Group == "CTR", "Control", "First-degree relative")
+  )
 ```
